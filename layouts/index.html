@@ -1,0 +1,29 @@
+{{ define "main" }}
+<main>
+  <h1>{{ .Site.Title }}</h1>
+
+  {{/* 首页正文来自 content/_index.md，用 Markdown 写 */}}
+  {{ .Content }}
+
+  {{/* 项目列表来自 data/projects.yaml，方便你增删条目 */}}
+  {{ with .Site.Data.projects }}
+  <ul>
+    {{ range . }}
+      <li>
+        {{ if .url }}
+          <a href="{{ .url }}">{{ .title }}</a>
+        {{ else }}
+          {{ .title }}
+        {{ end }}
+      </li>
+    {{ end }}
+  </ul>
+  {{ end }}
+
+  {{/* 结尾段落来自 _index.md 里 frontmatter 之后的第二部分？——见下方说明。
+       这里我们用一个 params 来放结尾，保持简单 */}}
+  {{ with .Params.outro }}
+  <p>{{ . | markdownify }}</p>
+  {{ end }}
+</main>
+{{ end }}

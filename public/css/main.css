@@ -1,0 +1,108 @@
+:root {
+  --bg: #fdfdfc;
+  --fg: #1a1a19;
+  --muted: #6b6b68;
+  --link: #1a1a19;
+  --link-underline: #c9c9c4;
+  --link-hover: #8a5a3a; /* 悬停暖褐色，想换配色改这里 */
+  --rule: #e6e6e1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a19;
+    --fg: #e9e9e5;
+    --muted: #9a9a95;
+    --link: #e9e9e5;
+    --link-underline: #4a4a46;
+    --link-hover: #d99a72;
+    --rule: #333330;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Newsreader", Georgia, "Times New Roman", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.5;
+  letter-spacing: 0.1px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+main {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 200px 28px 120px;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.3px;
+  margin: 0 0 32px;
+}
+
+p {
+  margin: 0 0 22px;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+a:hover {
+  color: var(--link-hover);
+  text-decoration-color: var(--link-hover);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--link-hover);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+ul {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+}
+
+li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+
+li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 4px;
+  height: 4px;
+  background: var(--muted);
+  border-radius: 50%;
+  background: var(--fg);
+}
+
+.muted { color: var(--muted); }
+
+@media (max-width: 480px) {
+  body { font-size: 19px; }
+  main { padding: 56px 22px 80px; }
+  h1 { font-size: 34px; }
+}

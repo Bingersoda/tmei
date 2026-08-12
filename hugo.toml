@@ -1,0 +1,12 @@
+baseURL = "https://bingersoda.github.io/tmei/"
+languageCode = "en-us"
+title = "Ting Mei"
+
+disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
+
+[params]
+  description = "Writer, editor, and developer."
+
+[markup.goldmark.parser.attribute]
+  block = true
+  title = true
