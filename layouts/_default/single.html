@@ -1,0 +1,9 @@
+{{ define "main" }}
+<main>
+  <p><a href="{{ "/" | relURL }}">← Home</a></p>
+
+  <h1>{{ .Title }}</h1>
+
+  {{ .Content }}
+</main>
+{{ end }}
