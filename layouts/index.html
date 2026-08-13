@@ -11,7 +11,7 @@
     {{ range . }}
       <li>
         {{ if .url }}
-          <a href="{{ .url }}">{{ .title }}</a>
+          <a href="{{ .url | relURL }}">{{ .title }}</a>
         {{ else }}
           {{ .title }}
         {{ end }}
